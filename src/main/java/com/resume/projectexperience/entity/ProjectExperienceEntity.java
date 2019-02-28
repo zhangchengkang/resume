@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Data
 @Builder
 @Entity
-@Table(name = "projectexperience")
+@Table(name = "projectExperience")
 public class ProjectExperienceEntity extends BaseEntity {
     /**
      * 项目名

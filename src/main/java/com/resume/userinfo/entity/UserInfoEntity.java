@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Data
 @Builder
 @Entity
-@Table(name = "userinfo")
+@Table(name = "userInfo")
 public class UserInfoEntity extends BaseEntity {
     /**
      * 姓名
@@ -71,14 +71,14 @@ public class UserInfoEntity extends BaseEntity {
     /**
      * 博客地址
      */
-    @Column(name = "blogAdderss")
-    private String blogAdderss;
+    @Column(name = "blogAddress")
+    private String blogAddress;
 
     /**
      * 简历地址
      */
-    @Column(name = "resumeAdderss")
-    private String resumeAdderss;
+    @Column(name = "resumeAddress")
+    private String resumeAddress;
 
     /**
      * 毕业时间

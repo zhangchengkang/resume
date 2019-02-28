@@ -174,7 +174,8 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     }
 
     public Iterable findAll(JSONObject spec, String orderBy) {
-        return getBaseDao().findAll(getSpecification(spec), getSort(orderBy));
+        return getBaseDao().findAll(getSpecification(spec), null == getSort(orderBy) ? Sort.unsorted() :
+                getSort(orderBy));
     }
 
     public Page findAll(JSONObject spec, Pageable pageable) {
@@ -315,7 +316,8 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
                 //获取传入的日期
                 Long start = 0L;
                 Long end = 0L;
-                if (objCondition.containsKey("startTime") && StringTool.noEmpty(objCondition.getString("startTime"))) {//传入的日期为字符串 格式为yyyy-MM-dd
+                if (objCondition.containsKey("startTime") && StringTool.noEmpty(objCondition.getString("startTime")))
+                {//传入的日期为字符串 格式为yyyy-MM-dd
                     start = DateUtil.string2Date(objCondition.getString("startTime"), "yyyy-MM-dd").getTime();
                 } else {
                     if (objCondition.containsKey("start")) {//传入的日期为时间戳

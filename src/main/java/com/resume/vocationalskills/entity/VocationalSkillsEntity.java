@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Data
 @Builder
 @Entity
-@Table(name = "vocationalskills")
+@Table(name = "vocationalSkills")
 public class VocationalSkillsEntity extends BaseEntity {
 
     /**

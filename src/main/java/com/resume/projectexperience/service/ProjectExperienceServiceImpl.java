@@ -15,13 +15,14 @@ import javax.annotation.Resource;
  * @create: 2019-02-27 22:13
  **/
 @Service
-public class ProjectExperienceServiceImpl extends BaseServiceImpl<ProjectExperienceEntity> implements ProjectExperienceService {
+public class ProjectExperienceServiceImpl extends BaseServiceImpl<ProjectExperienceEntity> implements
+        ProjectExperienceService {
     @Resource
     private ProjectExperienceDao projectExperienceDao;
 
     @Override
     public BaseDao<ProjectExperienceEntity> getBaseDao() {
-        return null;
+        return projectExperienceDao;
     }
 
 }

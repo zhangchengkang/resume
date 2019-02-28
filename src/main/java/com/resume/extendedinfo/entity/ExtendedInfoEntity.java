@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Data
 @Builder
 @Entity
-@Table(name = "extendedinfo")
+@Table(name = "extendedInfo")
 public class ExtendedInfoEntity extends BaseEntity {
     /**
      * 信息
