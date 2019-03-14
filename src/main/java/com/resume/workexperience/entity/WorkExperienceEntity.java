@@ -50,6 +50,11 @@ public class WorkExperienceEntity extends BaseEntity {
     @Column(name = "userId")
     private String userId;
 
+    //默认唯一名称字段
+    public String name() {
+        return "companyName";
+    }
+
     @Tolerate
     public WorkExperienceEntity() {
     }

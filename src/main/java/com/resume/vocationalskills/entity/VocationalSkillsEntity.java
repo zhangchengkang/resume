@@ -37,6 +37,11 @@ public class VocationalSkillsEntity extends BaseEntity {
     public VocationalSkillsEntity() {
     }
 
+    //默认唯一名称字段
+    public String name() {
+        return "skill";
+    }
+
     @Override
     public String[] modeCode() {
         return new String[]{"4", "职业技能"};

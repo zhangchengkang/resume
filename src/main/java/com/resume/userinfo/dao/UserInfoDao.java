@@ -4,4 +4,5 @@ import com.resume.userinfo.entity.UserInfoEntity;
 import com.resume.util.spring.dao.BaseDao;
 
 public interface UserInfoDao extends BaseDao<UserInfoEntity> {
+    UserInfoEntity findByUsername(String username);
 }

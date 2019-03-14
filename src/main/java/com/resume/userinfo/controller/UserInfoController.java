@@ -5,15 +5,19 @@ import com.resume.extendedinfo.service.ExtendedInfoService;
 import com.resume.projectexperience.service.ProjectExperienceService;
 import com.resume.userinfo.entity.UserInfoEntity;
 import com.resume.userinfo.service.UserInfoService;
+import com.resume.util.response.HttpResponse;
 import com.resume.util.response.HttpResponseList;
 import com.resume.util.spring.controller.BaseController;
 import com.resume.util.spring.service.BaseService;
 import com.resume.vocationalskills.service.VocationalSkillsService;
-import com.resume.workexperience.entity.WorkExperienceEntity;
 import com.resume.workexperience.service.WorkExperienceService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @program: resume
@@ -54,5 +58,23 @@ public class UserInfoController extends BaseController<UserInfoEntity> {
         responseJson.put("vocationalSkills", vocationalSkillsService.findAll(requestJson).getData());
         responseJson.put("workExperience", workExperienceService.findAll(requestJson).getData());
         return responseJson;
+    }
+
+    /**
+     * @接口方法说明: login
+     * @接口方法说明: 用户登录
+     * @param: loginInfo
+     * @功能:: HttpResponse<UserLoginDto>
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public HttpResponse<UserInfoEntity> login(@RequestBody UserInfoEntity loginInfo, HttpServletRequest request, HttpServletResponse response) {
+        return userInfoService.login(loginInfo, request, response);
+    }
+
+    @RequestMapping(value = "/findone", method = RequestMethod.POST)
+    public HttpResponseList findOne(@RequestBody UserInfoEntity loginInfo) {
+        List list = new ArrayList();
+        list.add(findById(loginInfo.getId()).getData());
+        return new HttpResponseList(list);
     }
 }

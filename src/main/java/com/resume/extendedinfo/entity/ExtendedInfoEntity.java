@@ -32,6 +32,11 @@ public class ExtendedInfoEntity extends BaseEntity {
     @Column(name = "userId")
     private String userId;
 
+    //默认唯一名称字段
+    public String name() {
+        return "info";
+    }
+
     @Tolerate
     public ExtendedInfoEntity() {
     }
